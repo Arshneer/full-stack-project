@@ -75,7 +75,7 @@ const productsSlice = createSlice({
       // fetchProducts fulfilled state
       .addCase(fetchProducts.fulfilled, (state, action) => {
         state.loading = false; // Loading complete
-        state.products = action.payload; // Update products with fetched data
+        state.products = action.payload.products || action.payload; // Update products with fetched data
         state.error = null; // Clear errors
       })
       // fetchProducts rejected state

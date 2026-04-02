@@ -30,7 +30,7 @@ const ProductList = () => {
     // WHY: Component needs to display products and handle loading/error states
     // HOW: Selects specific slices of the Redux state
     const { products, loading, error } = useSelector((state) => state.products);
-
+console.log(products);
     // useEffect hook to fetch products when component mounts
     // WHAT: Dispatches fetchProducts action on component mount
     // WHY: Need to load products data when the component first renders
@@ -67,9 +67,8 @@ const ProductList = () => {
             {/* Grid layout for responsive product display */}
             <Grid container spacing={2}>
                 {/* Check if products array has items */}
-                {products.length ? (
-                    // Map over products and render ProductCard for each
-                    products.map((product) => (
+                {Array.isArray(products) && products.length > 0 ? (
+    products.map((product) => (
                         // Grid item with responsive breakpoints
                         // xs=12: full width on extra small screens
                         // sm=6: half width on small screens
